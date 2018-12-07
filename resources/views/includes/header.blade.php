@@ -61,7 +61,7 @@
         <div class="header-middle">
             <div class="container">
                 <div class="header-left">
-                    <a href="index.html" class="logo">
+                    <a href="/" class="logo">
                         <img src="images/logo.png" alt="Ternakin Logo" class="header-logo">
                     </a>
                 </div><!-- End .header-left -->
