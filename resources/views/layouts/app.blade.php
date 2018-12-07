@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Ternakin') }}</title>
 
     <!-- Styles -->
-    <link rel="shortcut icon" type="image/png" href="/img/icon/icon.jpg" />
+    <link rel="shortcut icon" type="image/png" href="/img/icon/favicon.png" />
 
     <!-- CSS Core -->
         <link href="/css/font-awesome.min.css" rel="stylesheet" />

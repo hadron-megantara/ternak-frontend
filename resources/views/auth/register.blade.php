@@ -9,8 +9,8 @@
     <div class="container">
         <div class="row">
 			<div class="col-md-3 col-sm-3">&nbsp;</div>
-            <div class="col-md-6 col-sm-6" style="background-color:#ffffff;padding:30px 30px 0 30px;">
-				<h2 style="font-size:16px;margin-bottom:30px"><strong>REGISTER</strong></h2>
+            <div class="col-md-6 col-sm-6" style="background-color:#ffffff;padding:30px 30px 0 30px; border:solid 1px #2F88CC">
+				<h2 style="font-size:16px;margin-bottom:30px"><strong>Daftar</strong></h2>
 
 				<form action="/register" method="POST">
 					{!! csrf_field() !!}

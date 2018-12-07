@@ -62,7 +62,7 @@
                                 <li><a href="#">MY WISHLIST </a></li>
                                 <li><a href="blog.html">BLOG</a></li>
                                 <li><a href="contact.html">Contact</a></li>
-                                <li><a href="#" class="login-link">LOG IN</a></li>
+                                <li><a href="login">LOG IN</a></li>
                             </ul>
                         </div><!-- End .header-menu -->
                     </div><!-- End .header-dropown -->
