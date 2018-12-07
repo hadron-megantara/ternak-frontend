@@ -4,23 +4,11 @@
             <div class="container">
                 <div class="header-left header-dropdowns">
                     <div class="header-dropdown">
-                        <a href="#">USD</a>
-                        <div class="header-menu">
-                            <ul>
-                                <li><a href="#">EUR</a></li>
-                                <li><a href="#">USD</a></li>
-                            </ul>
-                        </div><!-- End .header-menu -->
+                        <a href="#">Rp</a>
                     </div><!-- End .header-dropown -->
 
                     <div class="header-dropdown">
-                        <a href="#"><img src="images/flags/en.png" alt="England flag">ENGLISH</a>
-                        <div class="header-menu">
-                            <ul>
-                                <li><a href="#"><img src="images/flags/en.png" alt="England flag">ENGLISH</a></li>
-                                <li><a href="#"><img src="images/flags/fr.png" alt="France flag">FRENCH</a></li>
-                            </ul>
-                        </div><!-- End .header-menu -->
+                        <a href="#"><img src="images/flags/id.png" alt="England flag">Indonesia</a><!-- End .header-menu -->
                     </div><!-- End .header-dropown -->
 
                     <div class="dropdown compare-dropdown">
@@ -116,8 +104,8 @@
                         <i class="icon-menu"></i>
                     </button>
                     <div class="header-contact">
-                        <span>Call us now</span>
-                        <a href="tel:#"><strong>+123 5678 890</strong></a>
+                        <span>Hubungi kami sekarang</span>
+                        <a href="tel:#"><strong>+62 821 2588 0700</strong></a>
                     </div><!-- End .header-contact -->
 
                     <div class="dropdown cart-dropdown">
