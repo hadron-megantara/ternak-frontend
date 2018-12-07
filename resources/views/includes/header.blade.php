@@ -1,233 +1,341 @@
-<?php
-    if(Session::has('cart')){
-        $sessionCart = Session('cart');
-        $cartCount = $sessionCart['total'];
-    } else{
-        $cartCount = 0;
-    }
-
-    $user = null;
-    if(Session::has('user')){
-        $user = session('user');
-        $firstname = explode(' ', $user['fullname']);
-        $firstname = substr($firstname[0], 0, 10);
-    }
-?>
-
-<style>
-    .userMenu li a:hover{
-        background-color: #ebebeb;
-    }
-
-    .logo:hover{
-        cursor: pointer;
-    }
-</style>
-
-<!-- header start -->
-<header class="header-pos elements1" style="border-bottom: 1px solid #ffff;background-color:#ffffff">
-    <div class="header-area header-middle">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-1 col-sm-1 col-xs-12">
-                    <div class="logo">
-                        <a href="/"><img src="/img/logo/logo-word-black.png" alt="" / style="width:150px;"></a>
-                    </div>
-                </div>
-                <div class="col-md-11 col-sm-11 col-xs-12 text-right xs-center">
-                    <div class="main-menu display-inline hidden-sm hidden-xs">
-                        <nav>
+<div class="page-wrapper">
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-left header-dropdowns">
+                    <div class="header-dropdown">
+                        <a href="#">USD</a>
+                        <div class="header-menu">
                             <ul>
-                                <li>
-                                    <a href="/products">Semua Produk</a>
-                                </li>
-
-                                <li><a href="#">Jilbab</a>
-                                    <ul class="submenu" style="margin-top:-20px">
-                                        <li><a href="/categories/jilbab" style="border-bottom: 1px solid #ebebeb;">Semua Jilbab</a></li>
-                                        <li><a href="/categories/jilbab/ciput">Ciput</a></li>
-                                        <li><a href="/categories/jilbab/instant">Kerudung Instan</a></li>
-                                        <li><a href="/categories/jilbab/khimar">Khimar</a></li>
-                                        <li><a href="/categories/jilbab/pashmina">Pashmina</a></li>
-                                        <li><a href="/categories/jilbab/square">Hijab Segi Empat</a></li>
-                                    </ul>
-                                </li>
-                                <li><a>Pakaian</a>
-                                    <ul class="submenu" style="margin-top:-20px">
-                                        <li class="/categories/clothing" style="border-bottom: 1px solid #ebebeb;"><a href="#">Semua Pakaian</a></li>
-                                        <li><a href="/categories/clothing/men">Pakaian Pria</a></li>
-                                        <li><a href="/categories/clothing/women">Pakaian Wanita</a></li>
-                                        <li><a href="/categories/clothing/gamis">Gamis</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="">Tas & Sepatu</a>
-                                    <ul class="submenu" style="margin-top:-20px">
-                                        <li><a href="/categories/bag">Semua Tas</a></li>
-                                        <li><a href="/categories/shoe">Semua Sepatu</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="/promo"><span class="fa fa-asterisk" style="color:red"></span>Diskon & Promo</a></li>
+                                <li><a href="#">EUR</a></li>
+                                <li><a href="#">USD</a></li>
                             </ul>
-                        </nav>
-                    </div>
-                    <div class="search-block-top display-inline">
-                        <div class="icon-search"></div>
-                        <div class="toogle-content">
-                            <form action="#" id="searchbox">
-                                <input type="text" placeholder="Search" />
-                                <button class="button-search"></button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="shopping-cart ml-20 display-inline" id="cartCountDiv">
-                        <a href="/cart"><b>keranjang</b>(<span id="cartCount">@if(isset($cartCount)) {{$cartCount}} @else 0 @endif</span>)</a>
+                        </div><!-- End .header-menu -->
+                    </div><!-- End .header-dropown -->
 
-                        <ul style="margin-top:-50px;background:#FBB62D;height:30px;padding-top:-10px;width:200px" id="cartCountInfo">
-                            <li style="color:#ffffff;margin-top:-10px"><span class="fa fa-info-circle"></span> Keranjang Diperbaharui</li>
-                        </ul>
-                    </div>
-                    <div class="display-inline" style="margin-left:10px">
-                        <a href="/wishlist" style="color:#000000"><span class="fa fa-heart-o"></span><b style="color:#ffae00">WISHLIST</b></a>
-                    </div>
-                    <div class="setting-menu display-inline">
-                        @if($user == null)
-                            <span class="fa fa-user"></span> <a href="/login">Sign In</a> | <a href="/register">Register</a>
-                        @else
-                            <span class="userMenu" style="color:#4FC1F0;"><span class="fa fa-user"> Hi, <span style="font-weight:bold">{{$firstname}}</span></span></span>
-                            <ul class="content-nav toogle-content userMenu userMenuDropDown" style="margin-top:-30px;padding:0px">
-                                <li class="currencies-block-top" style="padding-top:0px;margin-top:-20px">
-                                    <div class="current" style="height:30px;background:none;background-color:none"></div>
-                                    <div class="current" style="cursor:auto"><b>Akun Saya</b></div>
+                    <div class="header-dropdown">
+                        <a href="#"><img src="images/flags/en.png" alt="England flag">ENGLISH</a>
+                        <div class="header-menu">
+                            <ul>
+                                <li><a href="#"><img src="images/flags/en.png" alt="England flag">ENGLISH</a></li>
+                                <li><a href="#"><img src="images/flags/fr.png" alt="France flag">FRENCH</a></li>
+                            </ul>
+                        </div><!-- End .header-menu -->
+                    </div><!-- End .header-dropown -->
+
+                    <div class="dropdown compare-dropdown">
+                        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                            <i class="icon-retweet"></i> Compare (2)
+                        </a>
+
+                        <div class="dropdown-menu" >
+                            <div class="dropdownmenu-wrapper">
+                                <ul class="compare-products">
+                                    <li class="product">
+                                        <a href="#" class="btn-remove" title="Remove Product"><i class="icon-cancel"></i></a>
+                                        <h4 class="product-title"><a href="product.html">Lady White Top</a></h4>
+                                    </li>
+                                    <li class="product">
+                                        <a href="#" class="btn-remove" title="Remove Product"><i class="icon-cancel"></i></a>
+                                        <h4 class="product-title"><a href="product.html">Blue Women Shirt</a></h4>
+                                    </li>
+                                </ul>
+
+                                <div class="compare-actions">
+                                    <a href="#" class="action-link">Clear All</a>
+                                    <a href="#" class="btn btn-primary">Compare</a>
+                                </div>
+                            </div><!-- End .dropdownmenu-wrapper -->
+                        </div><!-- End .dropdown-menu -->
+                    </div><!-- End .dropdown -->
+                </div><!-- End .header-left -->
+
+                <div class="header-right">
+                    <p class="welcome-msg">Default welcome msg! </p>
+
+                    <div class="header-dropdown dropdown-expanded">
+                        <a href="#">Links</a>
+                        <div class="header-menu">
+                            <ul>
+                                <li><a href="my-account.html">MY ACCOUNT </a></li>
+                                <li><a href="#">DAILY DEAL</a></li>
+                                <li><a href="#">MY WISHLIST </a></li>
+                                <li><a href="blog.html">BLOG</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="#" class="login-link">LOG IN</a></li>
+                            </ul>
+                        </div><!-- End .header-menu -->
+                    </div><!-- End .header-dropown -->
+                </div><!-- End .header-right -->
+            </div><!-- End .container -->
+        </div><!-- End .header-top -->
+
+        <div class="header-middle">
+            <div class="container">
+                <div class="header-left">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo.png" alt="Ternakin Logo" class="header-logo">
+                    </a>
+                </div><!-- End .header-left -->
+
+                <div class="header-center">
+                    <div class="header-search">
+                        <a href="#" class="search-toggle" role="button"><i class="icon-magnifier"></i></a>
+                        <form action="#" method="get">
+                            <div class="header-search-wrapper">
+                                <input type="search" class="form-control" name="q" id="q" placeholder="Cari..." required>
+                                <div class="select-custom">
+                                    <select id="cat" name="cat">
+                                        <option value="">All Categories</option>
+                                        <option value="4">Fashion</option>
+                                        <option value="12">- Women</option>
+                                        <option value="13">- Men</option>
+                                        <option value="66">- Jewellery</option>
+                                        <option value="67">- Kids Fashion</option>
+                                        <option value="5">Electronics</option>
+                                        <option value="21">- Smart TVs</option>
+                                        <option value="22">- Cameras</option>
+                                        <option value="63">- Games</option>
+                                        <option value="7">Home &amp; Garden</option>
+                                        <option value="11">Motors</option>
+                                        <option value="31">- Cars and Trucks</option>
+                                        <option value="32">- Motorcycles &amp; Powersports</option>
+                                        <option value="33">- Parts &amp; Accessories</option>
+                                        <option value="34">- Boats</option>
+                                        <option value="57">- Auto Tools &amp; Supplies</option>
+                                    </select>
+                                </div><!-- End .select-custom -->
+                                <button class="btn" type="submit"><i class="icon-magnifier"></i></button>
+                            </div><!-- End .header-search-wrapper -->
+                        </form>
+                    </div><!-- End .header-search -->
+                </div><!-- End .headeer-center -->
+
+                <div class="header-right">
+                    <button class="mobile-menu-toggler" type="button">
+                        <i class="icon-menu"></i>
+                    </button>
+                    <div class="header-contact">
+                        <span>Call us now</span>
+                        <a href="tel:#"><strong>+123 5678 890</strong></a>
+                    </div><!-- End .header-contact -->
+
+                    <div class="dropdown cart-dropdown">
+                        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                            <span class="cart-count">2</span>
+                        </a>
+
+                        <div class="dropdown-menu" >
+                            <div class="dropdownmenu-wrapper">
+                                <div class="dropdown-cart-header">
+                                    <span>2 Items</span>
+
+                                    <a href="cart.html">View Cart</a>
+                                </div><!-- End .dropdown-cart-header -->
+                                <div class="dropdown-cart-products">
+                                    <div class="product">
+                                        <div class="product-details">
+                                            <h4 class="product-title">
+                                                <a href="product.html">Woman Ring</a>
+                                            </h4>
+
+                                            <span class="cart-product-info">
+                                                <span class="cart-product-qty">1</span>
+                                                x $99.00
+                                            </span>
+                                        </div><!-- End .product-details -->
+
+                                        <figure class="product-image-container">
+                                            <a href="product.html" class="product-image">
+                                                <img src="images/products/cart/product-1.jpg" alt="product">
+                                            </a>
+                                            <a href="#" class="btn-remove" title="Remove Product"><i class="icon-cancel"></i></a>
+                                        </figure>
+                                    </div><!-- End .product -->
+
+                                    <div class="product">
+                                        <div class="product-details">
+                                            <h4 class="product-title">
+                                                <a href="product.html">Woman Necklace</a>
+                                            </h4>
+
+                                            <span class="cart-product-info">
+                                                <span class="cart-product-qty">1</span>
+                                                x $35.00
+                                            </span>
+                                        </div><!-- End .product-details -->
+
+                                        <figure class="product-image-container">
+                                            <a href="product.html" class="product-image">
+                                                <img src="images/products/cart/product-2.jpg" alt="product">
+                                            </a>
+                                            <a href="#" class="btn-remove" title="Remove Product"><i class="icon-cancel"></i></a>
+                                        </figure>
+                                    </div><!-- End .product -->
+                                </div><!-- End .cart-product -->
+
+                                <div class="dropdown-cart-total">
+                                    <span>Total</span>
+
+                                    <span class="cart-total-price">$134.00</span>
+                                </div><!-- End .dropdown-cart-total -->
+
+                                <div class="dropdown-cart-action">
+                                    <a href="checkout-shipping.html" class="btn btn-block">Checkout</a>
+                                </div><!-- End .dropdown-cart-total -->
+                            </div><!-- End .dropdownmenu-wrapper -->
+                        </div><!-- End .dropdown-menu -->
+                    </div><!-- End .dropdown -->
+                </div><!-- End .header-right -->
+            </div><!-- End .container -->
+        </div><!-- End .header-middle -->
+
+        <div class="header-bottom sticky-header">
+            <div class="container">
+                <nav class="main-nav">
+                    <ul class="menu sf-arrows">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li>
+                            <a href="category.html" class="sf-with-ul">Categories</a>
+                            <div class="megamenu megamenu-fixed-width">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="menu-title">
+                                                    <a href="#">Variations 1<span class="tip tip-new">New!</span></a>
+                                                </div>
+                                                <ul>
+                                                    <li><a href="category-banner-full-width.html">Fullwidth Banner<span class="tip tip-hot">Hot!</span></a></li>
+                                                    <li><a href="category-banner-boxed-slider.html">Boxed Slider Banner</a></li>
+                                                    <li><a href="category-banner-boxed-image.html">Boxed Image Banner</a></li>
+                                                    <li><a href="category-sidebar-left.html">Left Sidebar</a></li>
+                                                    <li><a href="category-sidebar-right.html">Right Sidebar</a></li>
+                                                    <li><a href="category-flex-grid.html">Product Flex Grid</a></li>
+                                                    <li><a href="category-horizontal-filter1.html">Horizontal Filter1</a></li>
+                                                    <li><a href="category-horizontal-filter2.html">Horizontal Filter2</a></li>
+                                                </ul>
+                                            </div><!-- End .col-lg-6 -->
+                                            <div class="col-lg-6">
+                                                <div class="menu-title">
+                                                    <a href="#">Variations 2</a>
+                                                </div>
+                                                <ul>
+                                                    <li><a href="#">Product List Item Types</a></li>
+                                                    <li><a href="category-infinite-scroll.html">Ajax Infinite Scroll</a></li>
+                                                    <li><a href="category-3col.html">3 Columns Products</a></li>
+                                                    <li><a href="category-4col.html">4 Columns Products <span class="tip tip-new">New</span></a></li>
+                                                    <li><a href="category-5col.html">5 Columns Products</a></li>
+                                                    <li><a href="category-6col.html">6 Columns Products</a></li>
+                                                    <li><a href="category-7col.html">7 Columns Products</a></li>
+                                                    <li><a href="category-8col.html">8 Columns Products</a></li>
+                                                </ul>
+                                            </div><!-- End .col-lg-6 -->
+                                        </div><!-- End .row -->
+                                    </div><!-- End .col-lg-8 -->
+                                    <div class="col-lg-4">
+                                        <div class="banner">
+                                            <a href="#">
+                                                <img src="images/menu-banner-2.jpg" alt="Menu banner">
+                                            </a>
+                                        </div><!-- End .banner -->
+                                    </div><!-- End .col-lg-4 -->
+                                </div>
+                            </div><!-- End .megamenu -->
+                        </li>
+                        <li class="megamenu-container">
+                            <a href="product.html" class="sf-with-ul">Products</a>
+                            <div class="megamenu">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="menu-title">
+                                                    <a href="#">Variations</a>
+                                                </div>
+                                                <ul>
+                                                    <li><a href="product.html">Horizontal Thumbnails</a></li>
+                                                    <li><a href="product-full-width.html">Vertical Thumbnails<span class="tip tip-hot">Hot!</span></a></li>
+                                                    <li><a href="product.html">Inner Zoom</a></li>
+                                                    <li><a href="product-addcart-sticky.html">Addtocart Sticky</a></li>
+                                                    <li><a href="product-sidebar-left.html">Accordion Tabs</a></li>
+                                                </ul>
+                                            </div><!-- End .col-lg-4 -->
+                                            <div class="col-lg-4">
+                                                <div class="menu-title">
+                                                    <a href="#">Variations</a>
+                                                </div>
+                                                <ul>
+                                                    <li><a href="product-sticky-tab.html">Sticky Tabs</a></li>
+                                                    <li><a href="product-simple.html">Simple Product</a></li>
+                                                    <li><a href="product-sidebar-left.html">With Left Sidebar</a></li>
+                                                </ul>
+                                            </div><!-- End .col-lg-4 -->
+                                            <div class="col-lg-4">
+                                                <div class="menu-title">
+                                                    <a href="#">Product Layout Types</a>
+                                                </div>
+                                                <ul>
+                                                    <li><a href="product.html">Default Layout</a></li>
+                                                    <li><a href="product-extended-layout.html">Extended Layout</a></li>
+                                                    <li><a href="product-full-width.html">Full Width Layout</a></li>
+                                                    <li><a href="product-grid-layout.html">Grid Images Layout</a></li>
+                                                    <li><a href="product-sticky-both.html">Sticky Both Side Info<span class="tip tip-hot">Hot!</span></a></li>
+                                                    <li><a href="product-sticky-info.html">Sticky Right Side Info</a></li>
+                                                </ul>
+                                            </div><!-- End .col-lg-4 -->
+                                        </div><!-- End .row -->
+                                    </div><!-- End .col-lg-8 -->
+                                    <div class="col-lg-4">
+                                        <div class="banner">
+                                            <a href="#">
+                                                <img src="images/menu-banner.jpg" alt="Menu banner" class="product-promo">
+                                            </a>
+                                        </div><!-- End .banner -->
+                                    </div><!-- End .col-lg-4 -->
+                                </div><!-- End .row -->
+                            </div><!-- End .megamenu -->
+                        </li>
+                        <li>
+                            <a href="#" class="sf-with-ul">Pages</a>
+
+                            <ul>
+                                <li><a href="cart.html">Shopping Cart</a></li>
+                                <li><a href="#">Checkout</a>
                                     <ul>
-                                        <li><a href="/profile"><span class="fa fa-user"></span> Profil</a></li>
-                                        <li><a href="/booking-history"><span class="fa fa-list-alt"></span> Riwayat Pemesanan</a></li>
-                                        <li><a href="/signout"><span class="fa fa-sign-out"></span> Sign Out</a></li>
+                                        <li><a href="checkout-shipping.html">Checkout Shipping</a></li>
+                                        <li><a href="checkout-shipping-2.html">Checkout Shipping 2</a></li>
+                                        <li><a href="checkout-review.html">Checkout Review</a></li>
                                     </ul>
                                 </li>
+                                <li><a href="#">Dashboard</a>
+                                    <ul>
+                                        <li><a href="dashboard.html">Dashboard</a></li>
+                                        <li><a href="my-account.html">My Account</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="#">Blog</a>
+                                    <ul>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="single.html">Blog Post</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                                <li><a href="#" class="login-link">Login</a></li>
+                                <li><a href="forgot-password.html">Forgot Password</a></li>
                             </ul>
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="mobile-menu-area visible-sm visible-xs">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="mobile-menu">
-                        <nav id="mobile-menu-active">
-						<ul>
-							<li><a href="#">Home</a>
-								<ul>
-									<li><a href="index.html">home version 1</a></li>
-									<li><a href="index-2.html">home version 2</a></li>
-									<li><a href="index-3.html">home version 3</a></li>
-									<li><a href="index-4.html">home version 4</a></li>
-								</ul>
-							</li>
-							<li><a href="shop.html">Sofa</a>
-								<ul>
-									<li><a href="#">Bras & Tanks</a></li>
-									<li><a href="#">Trousers</a></li>
-									<li><a href="#">Hoodies & Sweatshirts</a></li>
-									<li><a href="#">Tees</a></li>
-									<li><a href="#">Jackets</a></li>
-									<li><a href="#">Shorts</a></li>
-									<li><a href="#">Trousers</a></li>
-									<li><a href="#">Tees</a></li>
-									<li><a href="#">Tanks</a></li>
-									<li><a href="#">Pants</a></li>
-									<li><a href="#">trousers</a></li>
-									<li><a href="#">jeans</a></li>
-									<li><a href="#">shorts</a></li>
-									<li><a href="#">suits</a></li>
-									<li><a href="#">jackets</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Elements</a>
-								<ul>
-                                        <li><a href="elements-alerts.html">alerts</a></li>
-                                        <li><a href="elements-banner1.html">banner 1</a></li>
-                                        <li><a href="elements-banner2.html">banner 2</a></li>
-                                        <li><a href="elements-banner3.html">banner 3</a></li>
-                                        <li><a href="elements-brand-logo.html">brand logo</a></li>
-                                        <li><a href="elements-buttons.html">buttons</a></li>
-                                        <li><a href="elements-blog.html">blog</a></li>
-                                        <li><a href="elements-tab.html">tab</a></li>
-                                        <li><a href="elements-map.html">map</a></li>
-                                        <li><a href="elements-collapse.html">collapse</a></li>
-                                        <li><a href="elements-newsletter.html">newsletter</a></li>
-                                        <li><a href="elements-newsletter-2.html">newsletter 2</a></li>
-                                        <li><a href="elements-products.html">products</a></li>
-                                        <li><a href="elements-services.html">services</a></li>
-                                        <li><a href="elements-social-icon.html">social icon</a></li>
-                                        <li><a href="elements-testimonial.html">testimonial</a></li>
-                                        <li><a href="elements-carousel-tab.html">carousel with tab</a></li>
-								</ul>
-							</li>
-							<li><a href="shop.html">Lighting</a>
-								<ul>
-									<li><a href="#">Bras & Tanks</a></li>
-									<li><a href="#">Trousers</a></li>
-									<li><a href="#">Hoodies & Sweatshirts</a></li>
-									<li><a href="#">Tees</a></li>
-									<li><a href="#">Jackets</a></li>
-									<li><a href="#">Shorts</a></li>
-									<li><a href="#">Trousers</a></li>
-									<li><a href="#">Tees</a></li>
-									<li><a href="#">Tanks</a></li>
-									<li><a href="#">Pants</a></li>
-									<li><a href="#">trousers</a></li>
-									<li><a href="#">jeans</a></li>
-									<li><a href="#">shorts</a></li>
-									<li><a href="#">suits</a></li>
-									<li><a href="#">jackets</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Pages</a>
-							    <ul>
-									<li><a href="blog.html">blog</a></li>
-									<li><a href="blog-details.html">blog details</a></li>
-									<li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
-									<li><a href="cart.html">cart</a></li>
-									<li><a href="checkout.html">checkout</a></li>
-									<li><a href="contact.html">contact</a></li>
-									<li><a href="login.html">login</a></li>
-									<li><a href="product-details.html">product details</a></li>
-									<li><a href="register.html">register</a></li>
-									<li><a href="shop.html">shop</a></li>
-									<li><a href="wishlist.html">wishlist</a></li>
-								</ul>
-							</li>
-							<li><a href="#">What's New</a></li>
-						</ul>
-					</nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- header end -->
-
-<script type="text/javascript">
-	$(document).ready(function(){
-        $('#cartCountDiv').hover(function(){
-            $('#cartCountInfo').css({"opacity": "0", "visibility": "hidden"});
-        });
-
-        $('.userMenu').hover(function(){
-            $('.userMenuDropDown').show();
-        });
-
-        $('.userMenu').mouseleave(function(){
-            $('.userMenuDropDown').hide();
-        });
-
-        $('.logo').click(function(){
-            window.location.replace = '/';
-        });
-    });
-</script>
+                        </li>
+                        <li><a href="#" class="sf-with-ul">Features</a>
+                            <ul>
+                                <li><a href="#">Header Types</a></li>
+                                <li><a href="#">Footer Types</a></li>
+                            </ul>
+                        </li>
+                        <li class="float-right"><a href="#">Buy Porto!</a></li>
+                        <li class="float-right"><a href="#">Special Offer!</a></li>
+                    </ul>
+                </nav>
+            </div><!-- End .header-bottom -->
+        </div><!-- End .header-bottom -->
+    </header><!-- End .header -->
